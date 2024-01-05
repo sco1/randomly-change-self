@@ -1,0 +1,24 @@
+{
+	"name": "Python Dev",
+	"dockerFile": "Dockerfile",
+
+	"customizations": {
+		"vscode": {
+			"extensions": [
+                "christian-kohler.path-intellisense",
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "ms-toolsai.jupyter",
+                "ms-toolsai.jupyter-renderers",
+                "ms-vscode.hexeditor",
+                "redhat.vscode-yaml",
+                "ryu1kn.partial-diff",
+                "s3gf4ult.monokai-vibrant",
+                "Tyriar.sort-lines",
+                "VisualStudioExptTeam.vscodeintellicode",
+                "vscode-icons-team.vscode-icons",
+                "yzhang.markdown-all-in-one"
+			]
+		}
+	}
+}

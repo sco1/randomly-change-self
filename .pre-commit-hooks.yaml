@@ -1,0 +1,7 @@
+-   id: randomly-change-self
+    name: Randomly Change Self
+    description: Randomly change 'self' to another value within a given scope
+    entry: change-self
+    language: python
+    types: [text]
+    files: '\.py$'
