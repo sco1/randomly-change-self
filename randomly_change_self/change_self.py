@@ -1,10 +1,21 @@
 import argparse
+import json
 import typing as t
 from pathlib import Path
+from urllib.request import urlopen
 
 
 def is_mercury_in_retrograde() -> bool:  # noqa: D103
-    raise NotImplementedError
+    """
+    Determine if Mercury is currently in retrograde.
+
+    Until the math can be implemented manually, this currently takes advantage of the Mercury
+    Retrograde API. More info can be found at: https://mercuryretrogradeapi.com/about.html
+    """
+    with urlopen("https://mercuryretrogradeapi.com") as r:
+        resp = json.loads(r.read())
+
+    return resp["is_retrograde"]  # type: ignore[no-any-return]
 
 
 def process_file(filepath: Path) -> None:
@@ -23,7 +34,14 @@ def main(argv: t.Optional[t.Sequence[str]] = None) -> None:  # noqa: D103
     args = parser.parse_args(argv)
 
     # If you're a watcher of the stars, don't change anything unless Mercury is in retrograde
-    if args.consider_mercury_in_retrograde and not is_mercury_in_retrograde():
+    try:
+        in_retrograde = is_mercury_in_retrograde()
+    except Exception:
+        print("Could not determine if Mercury is in retrograde, proceeding anyway!")
+        in_retrograde = True
+
+    if args.consider_mercury_in_retrograde and not in_retrograde:
+        print("Mercury isn't in retrograde, aborting...")
         return
 
     for file in args.filenames:
