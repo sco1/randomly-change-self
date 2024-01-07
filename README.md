@@ -1,8 +1,11 @@
 # randomly-change-self
-[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/randomly-change-self/0.1.0?logo=python&logoColor=FFD43B)](https://pypi.org/project/randomly-change-self/)
+[![PyPI](https://img.shields.io/pypi/v/randomly-change-self?logo=Python&logoColor=FFD43B)](https://pypi.org/project/randomly-change-self/)
+[![PyPI - License](https://img.shields.io/pypi/l/randomly-change-self?color=magenta)](https://github.com/sco1/randomly-change-self/blob/master/LICENSE)
+[![pre-commit.ci status](https://results.pre-commit.ci/badge/github/sco1/randomly-change-self/main.svg)](https://results.pre-commit.ci/latest/github/sco1/randomly-change-self/main)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-black)](https://github.com/psf/black)
 
-Change all instances of `self` to `this` in one randomly chosen scope.
+Change all instances of `self` to `this` in one randomly chosen scope per file.
 
 Inspired by [David Beazley's toot](https://mastodon.social/@dabeaz/111703946510399408).
 
@@ -24,7 +27,9 @@ cog.out(
 ]]] -->
 ```
 $ randomly-change-self --help
-usage: randomly-change-self [-h] [--consider-mercury-in-retrograde CONSIDER_MERCURY_IN_RETROGRADE] [filenames ...]
+usage: randomly-change-self [-h]
+                            [--consider-mercury-in-retrograde CONSIDER_MERCURY_IN_RETROGRADE]
+                            [filenames ...]
 
 positional arguments:
   filenames
@@ -34,3 +39,23 @@ options:
   --consider-mercury-in-retrograde CONSIDER_MERCURY_IN_RETROGRADE
 ```
 <!-- [[[end]]] -->
+
+## Arguments
+### `filenames`
+A collection of filename(s) to process. While this isn't required, you should probably pass some filename(s) if you want something to happen.
+
+### `consider-mercury-in-retrograde`
+Set to `True` if you only want to make changes if Mercury is in retrograde.
+
+**NOTE:** Because it turns out that astrophysics is a little challenging and I haven't done it since college, this is currently implemented as an API call to the [Mercury Retrograde API](https://mercuryretrogradeapi.com/about.html). This call should fail gracefully, and if an issue is encountered then your flag will be ignored and your code will get changed anyway.
+
+## Pre-Commit
+You can even use this as a [pre-commit](https://pre-commit.com/) hook. Wow!
+
+```yaml
+-   repo: https://github.com/sco1/randomly-change-self
+    rev: v0.1.0
+    hooks:
+    -   id: matlab-reflow-comments
+        args: [--consider-mercury-in-retrograde=False]
+```
