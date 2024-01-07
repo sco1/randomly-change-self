@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "randomly-change-self"
-version = "0.1.0"
+version = "0.1.1"
 description = "Change all instances of `self` to `this` in one randomly chosen scope"
 authors = ["sco1 <sco1.git@gmail.com>"]
 

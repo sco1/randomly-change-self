@@ -58,11 +58,17 @@ class FunctionVisitor(ast.NodeVisitor):
 
 
 def _process_src(src: str, replace_with: str = "this") -> str:
+    tokens = tokenize_rt.src_to_tokens(src)
+
     fv = FunctionVisitor()
     fv.visit(ast.parse(src))
+
+    # Short-circuit if we have no class definitions
+    if not fv.method_definitions:
+        return tokenize_rt.tokens_to_src(tokens)  # type: ignore[no-any-return]
+
     selfs = random.choice(list(fv.method_definitions.values()))
 
-    tokens = tokenize_rt.src_to_tokens(src)
     new_tokens = []
     for tok in tokens:
         if tok.offset in selfs:
