@@ -79,14 +79,14 @@ def _process_src(src: str, replace_with: str = "this") -> str:
     return tokenize_rt.tokens_to_src(new_tokens)  # type: ignore[no-any-return]
 
 
-def process_file(filepath: Path) -> None:
+def process_file(filepath: Path, replace_with: str = "this") -> None:
     """
-    Change all instances of `self` to `this` in one randomly chosen scope.
+    Change all instances of `"self"` to `replace_with` in one randomly chosen scope.
 
     An attempt is made to keep things working after any changes are made. Hopefully I'm successful!
     """
     src = filepath.read_text()
-    filepath.write_text(_process_src(src))
+    filepath.write_text(_process_src(src, replace_with))
 
 
 def is_mercury_in_retrograde() -> bool:  # noqa: D103
@@ -105,6 +105,7 @@ def is_mercury_in_retrograde() -> bool:  # noqa: D103
 def main(argv: abc.Sequence[str] | None = None) -> None:  # noqa: D103
     parser = argparse.ArgumentParser()
     parser.add_argument("filenames", nargs="*", type=Path)
+    parser.add_argument("--replace-with", type=str, default="this")
     parser.add_argument("--consider-mercury-in-retrograde", type=bool, default=False)
     args = parser.parse_args(argv)
 
@@ -120,7 +121,7 @@ def main(argv: abc.Sequence[str] | None = None) -> None:  # noqa: D103
         return
 
     for file in args.filenames:
-        process_file(file)
+        process_file(file, args.replace_with)
 
 
 if __name__ == "__main__":
