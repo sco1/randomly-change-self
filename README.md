@@ -27,9 +27,7 @@ cog.out(
 ]]] -->
 ```
 $ randomly-change-self --help
-usage: randomly-change-self [-h] [--replace-with REPLACE_WITH]
-                            [--consider-mercury-in-retrograde CONSIDER_MERCURY_IN_RETROGRADE]
-                            [filenames ...]
+usage: randomly-change-self [-h] [--replace-with REPLACE_WITH] [--consider-mercury-in-retrograde CONSIDER_MERCURY_IN_RETROGRADE] [filenames ...]
 
 positional arguments:
   filenames

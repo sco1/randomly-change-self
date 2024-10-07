@@ -1,12 +1,15 @@
-[tool.poetry]
+[project]
 name = "randomly-change-self"
 version = "0.2.0"
 description = "Change all instances of `self` to `this` in one randomly chosen scope"
-authors = ["sco1 <sco1.git@gmail.com>"]
+authors = [
+    {name = "sco1", email = "sco1.git@gmail.com"}
+]
+maintainers = [
+    {name = "sco1", email = "sco1.git@gmail.com"}
+]
 
 readme = "README.md"
-homepage = "https://github.com/sco1/"
-repository = "https://github.com/sco1/randomly-change-self"
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Developers",
@@ -19,32 +22,38 @@ classifiers = [
     "Programming Language :: Python :: 3.13",
     "Typing :: Typed",
 ]
-packages = [{include = "randomly_change_self"},]
 
-[tool.poetry.scripts]
+requires-python = ">=3.10"
+dependencies = [
+    "tokenize-rt~=6.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/sco1/"
+Documentation = "https://github.com/sco1/randomly-change-self/blob/main/README.md"
+Repository = "https://github.com/sco1/randomly-change-self"
+Issues = "https://github.com/sco1/randomly-change-self/issues"
+Changelog = "https://github.com/sco1/randomly-change-self/blob/main/CHANGELOG.md"
+
+[project.scripts]
 randomly-change-self = "randomly_change_self.change_self:main"
 
-[tool.poetry.dependencies]
-python = "^3.10"
-tokenize-rt = "^5.2"
-
-[tool.poetry.dev-dependencies]
-black = "^23.1"
-bump2version = "^1.0"
-cogapp = "^3.3"
-flake8 = "^6.0"
-flake8-annotations = "^3.0"
-flake8-bugbear = "^23.1"
-flake8-docstrings = "^1.7"
-flake8-fixme = "^1.1"
-isort = "^5.12"
-mypy = "^1.0"
-pep8-naming = "^0.13"
-pre-commit = "^3.0"
-pytest = "^7.2"
-pytest-cov = "^4.0"
-pytest-randomly = "^3.12"
-tox = "^4.4"
+[tool.uv]
+dev-dependencies = [
+    "black~=24.8",
+    "bump2version~=1.0",
+    "flake8~=7.1",
+    "flake8-annotations~=3.1",
+    "isort~=5.13",
+    "mypy~=1.11",
+    "pre-commit~=4.0",
+    "pytest~=8.3",
+    "pytest-cov~=5.0",
+    "pytest-randomly~=3.15",
+    "ruff~=0.6",
+    "tox~=4.18",
+    "tox-uv~=1.11",
+]
 
 [tool.black]
 line-length = 100
@@ -71,5 +80,5 @@ warn_unused_configs = true
 warn_unused_ignores = true
 
 [build-system]
-requires = ["poetry-core>=1.2"]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
