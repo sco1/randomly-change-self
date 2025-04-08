@@ -3,7 +3,6 @@
 [![PyPI](https://img.shields.io/pypi/v/randomly-change-self?logo=Python&logoColor=FFD43B)](https://pypi.org/project/randomly-change-self/)
 [![PyPI - License](https://img.shields.io/pypi/l/randomly-change-self?color=magenta)](https://github.com/sco1/randomly-change-self/blob/master/LICENSE)
 [![pre-commit.ci status](https://results.pre-commit.ci/badge/github/sco1/randomly-change-self/main.svg)](https://results.pre-commit.ci/latest/github/sco1/randomly-change-self/main)
-[![Code style: black](https://img.shields.io/badge/code%20style-black-black)](https://github.com/psf/black)
 
 Change all instances of `self` to `this` in one randomly chosen scope per file.
 
