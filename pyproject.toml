@@ -2,10 +2,9 @@
 name = "randomly-change-self"
 version = "0.2.0"
 description = "Change all instances of `self` to `this` in one randomly chosen scope"
+license = "MIT"
+license-files = ["LICENSE"]
 authors = [
-    {name = "sco1", email = "sco1.git@gmail.com"}
-]
-maintainers = [
     {name = "sco1", email = "sco1.git@gmail.com"}
 ]
 
@@ -13,7 +12,6 @@ readme = "README.md"
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Developers",
-    "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
     "Programming Language :: Python :: 3 :: Only",
     "Programming Language :: Python :: 3.10",
@@ -31,7 +29,7 @@ dependencies = [
 [project.urls]
 Homepage = "https://github.com/sco1/"
 Documentation = "https://github.com/sco1/randomly-change-self/blob/main/README.md"
-Repository = "https://github.com/sco1/randomly-change-self"
+Repository = "https://github.com/sco1/randomly-change-self.git"
 Issues = "https://github.com/sco1/randomly-change-self/issues"
 Changelog = "https://github.com/sco1/randomly-change-self/blob/main/CHANGELOG.md"
 
@@ -40,11 +38,11 @@ randomly-change-self = "randomly_change_self.change_self:main"
 
 [tool.uv]
 dev-dependencies = [
-    "black~=24.8",
+    "black~=25.0",
     "bump2version~=1.0",
     "flake8~=7.1",
     "flake8-annotations~=3.1",
-    "isort~=5.13",
+    "isort~=6.0",
     "mypy~=1.11",
     "pre-commit~=4.0",
     "pytest~=8.3",
